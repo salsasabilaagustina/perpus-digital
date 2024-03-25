@@ -8,7 +8,7 @@ import { installModule } from 'nuxt/kit';
                 <div class="my-3">
                     <input type="search" class="form-control form-control-lg rounded-5" placeholder="Filter...">
                 </div>
-                <div class="my-3 text-muted">menampilkan 1 dari 1</div>
+                <div class="my-3 text-muted">menampilkan 3 dari 3</div>
                 <table class="table">
                     <thead>
                         <tr>
