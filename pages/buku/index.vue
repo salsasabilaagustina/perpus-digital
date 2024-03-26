@@ -11,21 +11,21 @@
             <div class="col-lg-2">
               <div class="card mb-3">
                 <div class="card-body">
-                  <img src="~/assets/img/cover1.jpg" class="cover" alt="cover 1">
+                  <img src="~/assets/img/cover 1.jpg" class="cover" alt="cover 1">
                 </div>
               </div>
             </div>
             <div class="col-lg-2">
               <div class="card mb-3">
                 <div class="card-body">
-                  <img src="~/assets/img/cover2.jpg" class="cover" alt="cover2">
+                  <img src="~/assets/img/cover 2.jpg" class="cover" alt="cover2">
                 </div>
               </div>
             </div>
             <div class="col-lg-2">
               <div class="card mb-3">
                 <div class="card-body">
-                  <img src="~/assets/img/cover3.jpg" class="cover" alt="cover3">
+                  <img src="~/assets/img/cover 3.jpg" class="cover" alt="cover3">
                 </div>
               </div>
             </div>
