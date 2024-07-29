@@ -4,15 +4,10 @@
       <div class="col-lg-12">
         <div class="my-3">
           <form @submit.prevent="getBuku">
-          <input
-            v-model="keyword"
-            type="search"
-            class="form-control rounded-5"
-            placeholder="mau baca apa hari ini?"
-            />
+            <input v-model="keyword" type="search" class="form-control rounded-5" placeholder="Mau baca apa hari ini?" />
           </form>
         </div>
-        <div class="my-3 text-muted">menampilkan 4 dari 125</div>
+        <div class="my-4 text-muted">menampilkan {{ books?.length }} dari {{ totalBuku }}</div>
         <div class="row justify-content-evenly">
           <div v-for="(buku, i) in books" :key="i" class="col-lg-2">
           <nuxt-link :to="`/buku/${buku.id}`">
@@ -34,18 +29,35 @@
 <script setup>
 const supabase = useSupabaseClient()
 const keyword = ref("")
+const totalBuku = ref(0);
 const books = ref([])
 const getBuku = async () => {
   const { data, error} = await supabase.from('Buku').select('* kategori(*)')
+  .ilike('judul',`%${keyword.value}%`)
   if(data) books.value= data
-
 }
+const getTotalBuku = async () => {
+  const { count, error } = await supabase.from('Buku').select("*, kategori(*)", { count: "exact", head: true });
+  if (error) throw error
+  if (count) totalBuku.value = count;
+};
 onMounted(() => {
   getBuku()
+  getTotalBuku();
 })
 </script>
 
-  <style scoped>a
+  <style scoped>
+  .shadow-lg {
+  box-shadow: 6px 4px 0 #2e2e2eae !important;
+}
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 4px 4px 20px #2e2e2eae !important;
+}
+.card {
+  transition: all .2s ease-in-out;
+}
   .card-body {
     width: 100%;
     height: 30em;
